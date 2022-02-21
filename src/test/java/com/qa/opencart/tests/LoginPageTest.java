@@ -7,7 +7,7 @@ import com.qa.opencart.utills.Constaints;
 
 public class LoginPageTest extends BaseTest{
 	
-	@Test
+	@Test(priority=1)
 	public void loginPageTitleTest() {
 	String title=loginpage.getLoginPageTitle();
 	System.out.println("Login page title "+ title);
@@ -15,20 +15,20 @@ public class LoginPageTest extends BaseTest{
 		
 	}
 	
-	@Test
+	@Test(priority=2)
 	public void loginPageURLTest() {
 	String url=loginpage.getLoginpageURL();
 	System.out.println("Login page url "+ url);
 	Assert.assertTrue((url.contains(Constaints.LOGIN_PAGE_URL_FRACTION)));	
 	}
 	
-	@Test
+	@Test(priority=3)
 	public void ForgotPwdLinkTest() {
 	Assert.assertTrue(loginpage.isForgotPwdLinkExists());
 		
 	}
 	
-	@Test
+	@Test(priority=4)
 	public void loginTest() {
 	acountpage	=loginpage.doLogin(prop.getProperty("username").trim(), prop.getProperty("password"));
 	Assert.assertTrue(acountpage.isLogoutLinkExist());
